@@ -6,14 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    tools:context=".MainActivity">
+    tools:context=".feature.MainActivity">
 
-    <include layout="@layout/layout_appbar" />
+    <include
+        layout="@layout/layout_appbar" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"
-        android:name="dog.snow.androidrecruittest.ui.ListFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:defaultNavHost="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:navGraph="@navigation/nav_graph" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

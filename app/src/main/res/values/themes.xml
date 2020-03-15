@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Base.AppTheme" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="AppTheme.SplashTheme" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:background">@color/light_splash_bg</item>
+    </style>
 
-    <style name="AppTheme" parent="Base.AppTheme" />
+    <style name="Base.AppTheme" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
 
-    <style name="AppTheme.SplashTheme" />
+    <style name="AppTheme" parent="Base.AppTheme">
+        <item name="colorPrimary">?themeColorPrimary</item>
+        <item name="colorPrimaryDark">?themeColorPrimaryDark</item>
+        <item name="colorSecondary">?themeColorSecondary</item>
+        <item name="colorAccent">?themeColorAccent</item>
+        <item name="android:windowBackground">?themeColorBackground</item>
+        <item name="colorSurface">?themeColorSurface</item>
+        <item name="colorError">?themeColorError</item>
+    </style>
+
+    <style name="LightTheme" parent="AppTheme">
+        <item name="themeColorPrimary">@color/light_primary_color</item>
+        <item name="themeColorPrimaryDark">@color/light_primary_dark_color</item>
+        <item name="themeColorAccent">@color/light_accent_color</item>
+        <item name="themeColorBackground">@color/light_background_color</item>
+        <item name="themeColorSurface">@color/light_surface_color</item>
+        <item name="themeColorError">@color/light_error_color</item>
+        <item name="themeColorLogo">@color/sd_color_white</item>
+    </style>
+
+    <style name="DarkTheme" parent="AppTheme">
+        <item name="themeColorPrimary">@color/dark_primary_color</item>
+        <item name="themeColorPrimaryDark">@color/dark_primary_dark_color</item>
+        <item name="themeColorSecondary">@color/dark_secondary_color</item>
+        <item name="themeColorAccent">@color/dark_accent_color</item>
+        <item name="themeColorBackground">@color/dark_background_color</item>
+        <item name="themeColorSurface">@color/dark_surface_color</item>
+        <item name="themeColorError">@color/dark_error_color</item>
+    </style>
 
 </resources>

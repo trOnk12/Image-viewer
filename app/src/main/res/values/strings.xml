@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Android Recruit Test</string>
-    <string name="search_hint">Search…</string>
+    <string name="search_hint">Enter the album or photo title…</string>
     <string name="empty_list">No items to show…</string>
     <string name="empty_filter_list">No items to show for filter: %s</string>
     <string name="offline_mode">You\'re in offline mode</string>

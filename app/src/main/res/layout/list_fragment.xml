@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".feature.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_items"
@@ -26,6 +26,8 @@
     <include layout="@layout/layout_search" />
 
     <include
+        android:id="@+id/empty_view"
         layout="@layout/layout_empty_view"
         tools:visibility="gone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">#008577</color>
-    <color name="color_primary_dark">#00574B</color>
-    <color name="color_accent">#D81B60</color>
-    <color name="color_background">#FFFFFF</color>
-    <color name="color_error">#FF0000</color>
-    <color name="color_surface">#FFFFFF</color>
+    <color name="light_primary_color">#b388ff</color>
+    <color name="light_primary_dark_color">#805acb</color>
+    <color name="light_accent_color">#ffff00</color>
+    <color name="light_error_color">#FF0000</color>
+    <color name="light_background_color">#ffffff</color>
+    <color name="light_surface_color">#f5f5f5</color>
+    <color name="light_splash_bg">@color/sd_color_white</color>
 
-    <color name="splash_bg">@color/sd_color_white</color>
+    <color name="dark_primary_color">#000000</color>
+    <color name="dark_primary_dark_color">#000000</color>
+    <color name="dark_secondary_color">#03DAC6</color>
+    <color name="dark_accent_color">#FF9800</color>
+    <color name="dark_error_color">#FF0000</color>
+    <color name="dark_background_color">#212121</color>
+    <color name="dark_surface_color">#212121</color>
+    <color name="dark_splash_bg">@color/sd_color_black</color>
+
+    <color name="sd_color_white">#F6FAFD</color>
+    <color name="sd_color_black">#181718</color>
+    <color name="sd_color_white_mask">#F4F6FAFD</color>
+    <color name="sd_color_black_mask">#F4181718</color>
 </resources>
