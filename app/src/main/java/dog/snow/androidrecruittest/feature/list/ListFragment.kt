@@ -2,20 +2,17 @@ package dog.snow.androidrecruittest.feature.list
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dog.snow.androidrecruittest.R
 import dog.snow.androidrecruittest.SnowDogApp
 import dog.snow.androidrecruittest.core.extension.observe
+import dog.snow.androidrecruittest.feature.detail.DetailsFragmentViewModel
 import dog.snow.androidrecruittest.feature.list.adapter.ListAdapter
 import dog.snow.androidrecruittest.feature.list.model.ListItem
 import kotlinx.android.synthetic.main.layout_search.*
@@ -30,7 +27,7 @@ class ListFragment : Fragment(R.layout.list_fragment) {
     lateinit var adapter: ListAdapter
 
     private val listItemViewModel: ListFragmentViewModel by lazy {
-        viewModelFactory.create(ListFragmentViewModel::class.java)
+        ViewModelProvider(this, viewModelFactory)[ListFragmentViewModel::class.java]
     }
 
     override fun onAttach(context: Context) {
@@ -49,10 +46,6 @@ class ListFragment : Fragment(R.layout.list_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeView()
-
-        observe(listItemViewModel.listFragmentViewEvent, ::onViewEvent)
-
-        listItemViewModel.fetchData()
     }
 
     private fun initializeView() {
@@ -80,15 +73,6 @@ class ListFragment : Fragment(R.layout.list_fragment) {
         findNavController().navigate(action, extras)
     }
 
-    private fun onViewEvent(viewEvent: ListFragmentViewEvent) {
-        when (viewEvent) {
-            is ListFragmentViewEvent.LoadListItems -> {
-                onListItemLoaded(viewEvent.listItems)
-            }
-            is ListFragmentViewEvent.ShowErrorMessage -> showError(viewEvent.message)
-        }
-    }
-
     private fun onFilterResult(list: List<ListItem>) {
         if (list.isEmpty()) {
             empty_view.visibility = View.VISIBLE
@@ -100,11 +84,26 @@ class ListFragment : Fragment(R.layout.list_fragment) {
         }
     }
 
-    private fun onListItemLoaded(listItems: List<ListItem>) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        observe(listItemViewModel.listFragmentViewEvent, ::onViewEvent)
+        observe(listItemViewModel.listItem, ::onListItemChanged)
+
+        if (savedInstanceState == null)
+            listItemViewModel.fetchData()
+    }
+
+    private fun onListItemChanged(listItems: List<ListItem>) {
         adapter.setData(listItems)
 
         rv_items.visibility = View.VISIBLE
         empty_view.visibility = View.GONE
+    }
+
+    private fun onViewEvent(viewEvent: ListFragmentViewEvent) {
+        when (viewEvent) {
+            is ListFragmentViewEvent.ShowErrorMessage -> showError(viewEvent.message)
+        }
     }
 
     private fun showError(errorMessage: String?) {

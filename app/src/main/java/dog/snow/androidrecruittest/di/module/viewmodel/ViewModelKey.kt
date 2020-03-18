@@ -1,4 +1,4 @@
-package com.app.mateusz.pokemon.di.modules.viewmodel
+package dog.snow.androidrecruittest.di.module.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

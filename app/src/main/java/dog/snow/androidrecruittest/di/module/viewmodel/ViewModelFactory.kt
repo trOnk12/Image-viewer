@@ -1,4 +1,4 @@
-package com.app.mateusz.pokemon.di.modules.viewmodel
+package dog.snow.androidrecruittest.di.module.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -14,5 +14,6 @@ class ViewModelFactory
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T = viewModels[modelClass]?.get() as T
+    override fun <T : ViewModel> create(modelClass: Class<T>): T =
+        viewModels[modelClass]?.get() as T
 }

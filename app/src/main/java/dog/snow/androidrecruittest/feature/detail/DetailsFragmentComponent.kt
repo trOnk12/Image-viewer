@@ -8,4 +8,5 @@ import dog.snow.androidrecruittest.di.scope.FeatureScope
 @Component(dependencies = [CoreComponent::class])
 interface DetailsFragmentComponent {
     fun inject(detailsFragment: DetailsFragment)
+
 }
