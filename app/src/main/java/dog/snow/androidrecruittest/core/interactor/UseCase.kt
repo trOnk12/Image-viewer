@@ -38,5 +38,4 @@ abstract class NoTypeUseCase<in Params> {
     }
 }
 
-
 class None
